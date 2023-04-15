@@ -1,0 +1,6 @@
+0: MainActivity
+1: HistoryActivity
+2: CollectionActivity
+3: AccountActivity
+4: CategoryBookActivity
+5: SearchActivity
