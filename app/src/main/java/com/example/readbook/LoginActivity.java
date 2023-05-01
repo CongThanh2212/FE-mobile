@@ -112,7 +112,7 @@ public class LoginActivity extends AppCompatActivity {
                             notification.setLayoutParams(params);
                             return;
                         }
-                        saveLogin.save(account.getEmail(), account.getName());
+                        saveLogin.save(account.getEmail(), account.getName(), "email");
                         Intent intent = new Intent(LoginActivity.this, AccountActivity.class);
                         startActivity(intent);
                     }
@@ -159,7 +159,7 @@ public class LoginActivity extends AppCompatActivity {
                                     @Override
                                     public void onCompleted(JSONObject object, GraphResponse response) {
                                         try {
-                                            saveLogin.save(object.getString("email"), object.getString("name"));
+                                            saveLogin.save(object.getString("email"), object.getString("name"), "facebook");
                                             Intent intent = new Intent(LoginActivity.this, AccountActivity.class);
                                             startActivity(intent);
                                         } catch (JSONException e) {

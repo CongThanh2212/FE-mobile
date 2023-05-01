@@ -92,7 +92,7 @@ public class OTPActivity extends AppCompatActivity {
                         public void onResponse(Call<Account> call, Response<Account> response) {
                             Account account = response.body();
                             if (account.isSuccess()) {
-                                saveLogin.save(account.getEmail(), account.getName());
+                                saveLogin.save(account.getEmail(), account.getName(), "email");
                                 Intent intent = new Intent(OTPActivity.this, AccountActivity.class);
                                 startActivity(intent);
                                 return;

@@ -32,7 +32,7 @@
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:gravity="center_vertical"
-                android:text="Khu vườn tri thức"/>
+                android:text="Vườn tri thức"/>
             <ImageView android:id="@+id/search"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -153,12 +153,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="10dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:background="#eee">
                 <TextView android:id="@+id/icon"
                     android:background="@drawable/image_account"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:gravity="center"
                     android:textSize="30sp"
                     android:textColor="@color/white"/>

@@ -74,6 +74,9 @@ public class AccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AccountActivity.this, ChangeInfoFullActivity.class);
+                if (saveLogin.getType().equals("facebook")) {
+                    intent = new Intent(AccountActivity.this, ChangeInfoNoPassActivity.class);
+                }
                 startActivity(intent);
             }
         });
@@ -117,16 +120,19 @@ public class AccountActivity extends AppCompatActivity {
                     case 0: {
                         Intent intent = new Intent(AccountActivity.this, MainActivity.class);
                         startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         break;
                     }
                     case 1: {
                         Intent intent = new Intent(AccountActivity.this, HistoryActivity.class);
                         startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         break;
                     }
                     case 2: {
                         Intent intent = new Intent(AccountActivity.this, CollectionActivity.class);
                         startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         break;
                     }
                 }

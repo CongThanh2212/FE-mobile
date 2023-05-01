@@ -14,9 +14,10 @@ public class SaveLogin {
         editor = sp.edit();
     }
 
-    public void save(String email, String name) {
+    public void save(String email, String name, String type) {
         editor.putString("email", email);
         editor.putString("name", name);
+        editor.putString("type", type);
         editor.commit();
     }
 
@@ -31,5 +32,9 @@ public class SaveLogin {
 
     public String getName() {
         return sp.getString("name", "");
+    }
+
+    public String getType() {
+        return sp.getString("type", "");
     }
 }

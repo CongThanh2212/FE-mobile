@@ -106,16 +106,19 @@ public class CollectionActivity extends AppCompatActivity {
                     case 0: {
                         Intent intent = new Intent(CollectionActivity.this, MainActivity.class);
                         startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         break;
                     }
                     case 1: {
                         Intent intent = new Intent(CollectionActivity.this, HistoryActivity.class);
                         startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         break;
                     }
                     case 3: {
                         Intent intent = new Intent(CollectionActivity.this, AccountActivity.class);
                         startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         break;
                     }
                 }

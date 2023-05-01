@@ -91,7 +91,7 @@ public class ChangeInfoFullActivity extends AppCompatActivity {
                         Account account = response.body();
 
                         saveLogin.clear();
-                        saveLogin.save(account.getEmail(), account.getName());
+                        saveLogin.save(account.getEmail(), name.getText().toString(), "email");
 
                         Intent intent = new Intent(ChangeInfoFullActivity.this, AccountActivity.class);
                         startActivity(intent);

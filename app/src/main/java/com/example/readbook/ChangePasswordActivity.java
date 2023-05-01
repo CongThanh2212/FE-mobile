@@ -94,7 +94,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Account> call, Response<Account> response) {
                         Account account = response.body();
-                        saveLogin.save(account.getEmail(), account.getName());
+                        saveLogin.save(account.getEmail(), account.getName(), "email");
                         Intent intent = new Intent(ChangePasswordActivity.this, AccountActivity.class);
                         startActivity(intent);
                     }

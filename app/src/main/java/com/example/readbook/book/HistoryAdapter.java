@@ -14,7 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.readbook.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
 
@@ -47,7 +50,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         Glide.with(context).load(books.get(position).getImg()).into(holder.img);
         holder.name.setText(books.get(position).getName());
         holder.author.setText(books.get(position).getAuthor());
-        holder.date.setText(books.get(position).getDate().toString());
+
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
+        String formattedDate = dateFormatter.format(books.get(position).getDate());
+        holder.date.setText(formattedDate);
     }
 
     @Override
