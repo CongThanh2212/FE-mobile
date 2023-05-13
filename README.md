@@ -10,5 +10,8 @@ BookGarden là app đọc sách trên hệ điều hành android với các ch�
 + Lưu trữ bộ sưu tập sách theo sở thích của bạn
 + Lưu trữ lịch sử đọc sách của cá nhân
 
+## Author
+Võ Công Thành - [thanhvc.uet@gmail.com](mailto:thanhvc.uet@gmail.com)
+
 ## Link Front-end
 https://github.com/CongThanh2212/BE-mobile
