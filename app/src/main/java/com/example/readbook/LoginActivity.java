@@ -1,5 +1,8 @@
 package com.example.readbook;
 
+import static com.example.readbook.ReadActivity.TAG;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActionBar;
@@ -7,11 +10,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.readbook.accoount.Account;
 import com.example.readbook.api.API;
@@ -146,6 +151,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    // Login Fb trực tiếp (status: bug)
     private void onclickFb() {
         callbackManager = CallbackManager.Factory.create();
         LoginManager.getInstance().registerCallback(callbackManager,
@@ -190,43 +196,62 @@ public class LoginActivity extends AppCompatActivity {
                 LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList("public_profile"));
             }
         });
+    }
 
-//        facebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//                AccessToken accessToken = loginResult.getAccessToken();
-//                GraphRequest request = GraphRequest.newMeRequest(
-//                        accessToken,
-//                        new GraphRequest.GraphJSONObjectCallback() {
-//                            @Override
-//                            public void onCompleted(JSONObject object, GraphResponse response) {
-//                                try {
-//                                    saveLogin.save(object.getString("email"), object.getString("name"));
-//                                    Intent intent = new Intent(LoginActivity.this, AccountActivity.class);
-//                                    startActivity(intent);
-//                                } catch (JSONException e) {
-//                                    e.printStackTrace();
-//                                }
-//                            }
-//                        });
+    // Login FB by firebase
+//    private void onclickFb() {
+//        callbackManager = CallbackManager.Factory.create();
+//        LoginManager.getInstance().registerCallback(callbackManager,
+//                new FacebookCallback<LoginResult>() {
+//                    @Override
+//                    public void onSuccess(LoginResult loginResult) {
+//                        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+//                        handleFacebookAccessToken(accessToken);
+//                    }
 //
-//                Bundle parameters = new Bundle();
-//                parameters.putString("fields", "id,name,email");
-//                request.setParameters(parameters);
-//                request.executeAsync();
-//            }
+//                    @Override
+//                    public void onCancel() {
+//                        // App code
+//                    }
 //
+//                    @Override
+//                    public void onError(FacebookException exception) {
+//                        // App code
+//                    }
+//                });
+//        facebook.setOnClickListener(new View.OnClickListener() {
 //            @Override
-//            public void onCancel() {
-//                // App code
-//            }
-//
-//            @Override
-//            public void onError(FacebookException exception) {
-//                // App code
+//            public void onClick(View view) {
+//                LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList("public_profile"));
 //            }
 //        });
-    }
+//    }
+
+//    private void handleFacebookAccessToken(AccessToken token) {
+//        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+//        mAuth.signInWithCredential(credential)
+//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if (task.isSuccessful()) {
+//                            // Sign in success, update UI with the signed-in user's information
+//                            Log.d(TAG, "signInWithCredential:success");
+//                            FirebaseUser user = mAuth.getCurrentUser();
+//                            if (user != null) {
+//                                saveLogin.save(user.getEmail(), user.getDisplayName(), "facebook");
+//                                Intent intent = new Intent(LoginActivity.this, AccountActivity.class);
+//                                startActivity(intent);
+//                            }
+//                        } else {
+//                            // If sign in fails, display a message to the user.
+//                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+//                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+//                                    Toast.LENGTH_SHORT).show();
+//
+//                        }
+//                    }
+//                });
+//    }
 
 
     @Override

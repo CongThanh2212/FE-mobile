@@ -108,6 +108,8 @@ public class BookActivity extends AppCompatActivity {
                 language.setText(book1.getLanguage());
 
                 setBook(book, book1);
+                // Related book
+                showRelatedBooks(book);
             }
 
             @Override
@@ -132,9 +134,6 @@ public class BookActivity extends AppCompatActivity {
                 }
             });
         }
-
-        // Related book
-        showRelatedBooks(book);
     }
 
     private void onclickAddCollection(Book book) {

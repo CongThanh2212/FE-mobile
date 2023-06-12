@@ -55,6 +55,7 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
     private MyRecycler rvBook;
     private TextView name;
     private ImageView back;
+    private ImageView background;
     private ProgressBar load;
 
     private List<FontEntity> listFont = new ArrayList<>();
@@ -77,6 +78,7 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         mapping();
         showName(bundle);
         onclickBack(bundle);
+        onclickBackGround();
 
         downloadFile(((Book) bundle.getSerializable("book")).getPdf());
 
@@ -94,6 +96,7 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         rvBook = findViewById(R.id.rv_book);
         name = findViewById(R.id.name);
         back = findViewById(R.id.back);
+        background = findViewById(R.id.btn_background);
         findViewById(R.id.btn_setting).setOnClickListener(this);
         load = findViewById(R.id.load);
     }
@@ -212,6 +215,18 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
 
                 intent.putExtra("data", bundleSend);
                 startActivity(intent);
+            }
+        });
+    }
+
+    private void onclickBackGround() {
+        background.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String background = adapter.getBackground();
+                if (background == "#e6deae") adapter.setBackground("#ffffff");
+                else adapter.setBackground("#e6deae");
+                adapter.notifyDataSetChanged();
             }
         });
     }

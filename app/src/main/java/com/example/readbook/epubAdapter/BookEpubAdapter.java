@@ -1,5 +1,6 @@
 package com.example.readbook.epubAdapter;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ public class BookEpubAdapter extends RecyclerView.Adapter<BookEpubAdapter.MyView
     private String baseUrl;
     private FontEntity fontEntity;
     private int fontSize = -1;
+    private String background = "#ffffff";
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -41,6 +43,7 @@ public class BookEpubAdapter extends RecyclerView.Adapter<BookEpubAdapter.MyView
             if (onHrefClickListener != null)
                 epubView.setOnHrefClickListener(onHrefClickListener);
             epubView.setUp(content);
+            epubView.setBackgroundColor(Color.parseColor(background));
         }
     }
 
@@ -94,5 +97,11 @@ public class BookEpubAdapter extends RecyclerView.Adapter<BookEpubAdapter.MyView
 
     public void setFontSize(int fontSize) {
         this.fontSize = fontSize;
+    }
+
+    public void setBackground(String background) {this.background = background;}
+
+    public String getBackground() {
+        return this.background;
     }
 }
