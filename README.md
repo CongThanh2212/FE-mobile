@@ -13,5 +13,5 @@ BookGarden là app đọc sách trên hệ điều hành android với các ch�
 ## Author
 Võ Công Thành - [thanhvc.uet@gmail.com](mailto:thanhvc.uet@gmail.com)
 
-## Link Front-end
+## Link Back-end
 https://github.com/CongThanh2212/BE-mobile
